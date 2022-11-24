@@ -1,5 +1,5 @@
 const apiError = require("../apiError");
-const WordService = require("../services/en-vnService");
+const EngWordService = require("../services/en-vnService");
 const MongoDB = require("../utils/mongodbUtils");
 
 // Create and save a new Word
@@ -8,7 +8,7 @@ exports.create = async (req, res, next) => {
         return next(new apiError(400, "Name can not be empty"));
     }
     try {
-        const wordService = new WordService(MongoDB.client);
+        const wordService = new EngWordService(MongoDB.client);
         const document = await wordService.create(req.body);
         return res.send(document);
     } catch (error) {
@@ -21,7 +21,7 @@ exports.create = async (req, res, next) => {
 exports.findAll = async (req, res, next) => {
     let documents = [];
     try {
-        const wordService = new WordService(MongoDB.client);
+        const wordService = new EngWordService(MongoDB.client);
         const { name } = req.query;
         if (name) {
             documents = await wordService.findByName(name);
@@ -39,7 +39,7 @@ exports.findAll = async (req, res, next) => {
 
 exports.findOne = async (req, res, next) => {
     try {
-        const wordService = new WordService(MongoDB.client);
+        const wordService = new EngWordService(MongoDB.client);
         const document = await wordService.findById(req.params.id);
         if (!document) {
             return next(
@@ -61,7 +61,7 @@ exports.update = async (req, res, next) => {
         );
     }
     try {
-        const wordService = new WordService(MongoDB.client);
+        const wordService = new EngWordService(MongoDB.client);
         const document = await wordService.update(req.params.id, req.body);
         if (!document) {
             return next(
@@ -78,7 +78,7 @@ exports.update = async (req, res, next) => {
 
 exports.delete = async (req, res, next) => {
     try {
-        const wordService = new WordService(MongoDB.client);
+        const wordService = new EngWordService(MongoDB.client);
         const document = await wordService.delete(req.params.id);
         if (!document) {
             return next(
@@ -95,7 +95,7 @@ exports.delete = async (req, res, next) => {
 
 exports.deleteAll = async (req, res, next) => {
     try {
-        const wordService = new WordService(MongoDB.client);
+        const wordService = new EngWordService(MongoDB.client);
         const deleteCount = await wordService.deleteAll();
         return res.send({
             message: `${deleteCount} Words were deleted successfully`,

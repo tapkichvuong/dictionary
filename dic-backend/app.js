@@ -10,7 +10,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to contact book application!" });
 });
-app.use("/api/", en_vnRouter);
+app.use("/api/eng", en_vnRouter);
 
 //handle 404
 app.use((req, res, next) =>{

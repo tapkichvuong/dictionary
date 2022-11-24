@@ -1,11 +1,16 @@
 const express = require("express");
-const word = require("../controllers/en-vnController");
+const eng = require("../controllers/en-vnController");
 
-const router = express.Router();
+const en_vnRouter = express.Router();
 
-router.route("/")
-    .get(word.findAll)
-    .post(word.create)
-    .delete(word.deleteAll);
+en_vnRouter.route("/")
+    .get(eng.findAll)
+    .post(eng.create)
+    .delete(eng.deleteAll);
 
-module.exports = router;
+en_vnRouter.route("/:id")
+    .get(eng.findOne)
+    .put(eng.update)
+    .delete(eng.delete);
+
+module.exports = en_vnRouter;

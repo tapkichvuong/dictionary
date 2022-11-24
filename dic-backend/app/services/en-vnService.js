@@ -1,6 +1,6 @@
 const { ObjectId } = require("mongodb");
 
-class WordService {
+class EngWordService {
     constructor(client) {
         this.word = client.db().collection("EN-VN");
     }
@@ -8,6 +8,7 @@ class WordService {
     extraWordData(payload) {
         const word = {
             english: payload.english,
+            form: payload.form,
             viet: payload.viet,
             example: payload.example,
         }
@@ -65,14 +66,10 @@ class WordService {
         return result.value;
     }
 
-    async findFavorite() {
-        return await this.find({ favorite: true});
-    }
-
     async deleteAll(){
         const result  = await this.word.deleteMany({});
         return result.deletedCount;
     }
 }
 
-module.exports = WordService;
+module.exports = EngWordService;
