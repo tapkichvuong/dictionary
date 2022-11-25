@@ -1,8 +1,8 @@
 <script>
-import wordCard from '@/components/engCard.vue';
+import wordCard from '@/components/fraCard.vue';
 import InputSearch from '@/components/InputSearch.vue';
-import wordList from '@/components/engList.vue';
-import en_vnService from '@/services/en_vnServices';
+import wordList from '@/components/fraList.vue';
+import fr_vnService from '@/services/fr_vnServices';
 export default {
     components: {
         wordCard,
@@ -24,8 +24,8 @@ export default {
     computed: {
         wordStrings() {
             return this.words.map((word) => {
-                const { english, form, viet, example } = word;
-                return [english, form, viet, example].join("");
+                const { Français, form, viet, example } = word;
+                return [Français, form, viet, example].join("");
             });
         },
         filteredWords() {
@@ -43,7 +43,7 @@ export default {
     methods: {
         async retrieveWords() {
             try {
-                this.words = await en_vnService.getAll();
+                this.words = await fr_vnService.getAll();
             } catch (error) {
                 console.log(error);
             }
@@ -55,7 +55,7 @@ export default {
         async removeAllWord() {
             if (confirm("Bạn muốn xóa từ điển")) {
                 try {
-                    await en_vnService.deleteAll();
+                    await fr_vnService.deleteAll();
                     this.refreshList();
                 } catch (error) {
                     console.log(error);
@@ -63,7 +63,7 @@ export default {
             }
         },
         goToAddWord() {
-            this.$router.push({ name: "eng.add" });
+            this.$router.push({ name: "fra.add" });
         }
     },
     mounted() {
@@ -102,7 +102,7 @@ export default {
                     <i class="fas fa-address-card"></i>
                 </h4>
                 <wordCard :word="activeWord"/>
-                <router-link :to="{name: 'eng.edit', params: {id: activeWord._id}, }">
+                <router-link :to="{name: 'fra.edit', params: {id: activeWord._id}, }">
                     <span>
                         <font-awesome-icon icon="fa-solid fa-pen-to-square" /> Hiệu chỉnh
                     </span>

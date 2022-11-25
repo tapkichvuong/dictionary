@@ -1,6 +1,6 @@
 <script>
-import WordForm from "@/components/wordForm.vue";
-import en_vnService from "@/services/en_vnServices";
+import WordForm from "@/components/fraForm.vue";
+import fr_vnService from "@/services/fr_vnServices";
 export default {
     components: {
         WordForm,
@@ -8,7 +8,7 @@ export default {
     data() {
         return {
             word: {
-                'english': "",
+                'Français': "",
                 'form': "",
                 'viet': "",
                 'example': "",
@@ -19,7 +19,7 @@ export default {
     methods: {
         async createWord(data) {
             try {
-                await en_vnService.create(data);
+                await fr_vnService.create(data);
                 this.message = "Từ mới thêm thành công.";
             } catch (error) {
                 console.log(error);

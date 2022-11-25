@@ -1,7 +1,7 @@
 import createApiClient from "./api.service";
 
-class en_vnService {
-    constructor(baseURL = "/api/eng"){
+class fr_vnService {
+    constructor(baseURL = "/api/fra"){
         this.api = createApiClient(baseURL);
     }
 
@@ -25,4 +25,4 @@ class en_vnService {
     }
 }
 
-export default new en_vnService();
+export default new fr_vnService();

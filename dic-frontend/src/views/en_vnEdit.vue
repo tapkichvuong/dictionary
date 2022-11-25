@@ -1,5 +1,5 @@
 <script>
-import WordForm from "@/components/wordForm.vue";
+import WordForm from "@/components/engForm.vue";
 import en_vnService from "@/services/en_vnServices";
 export default {
     components: {
@@ -32,7 +32,7 @@ export default {
         },
         async updateWord(data) {
             try {
-                await en_vnService.update(this.Word._id, data);
+                await en_vnService.update(this.word._id, data);
                 this.message = "Từ được cập nhật thành công.";
             } catch (error) {
                 console.log(error);
@@ -41,7 +41,7 @@ export default {
         async deleteWord() {
             if (confirm("Bạn muốn xóa từ này?")) {
                 try {
-                    await en_vnService.delete(this.Word._id);
+                    await en_vnService.delete(this.word._id);
                     this.$router.push({ name: "eng_vie" });
                 } catch (error) {
                     console.log(error);

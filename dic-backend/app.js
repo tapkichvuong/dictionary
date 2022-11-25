@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const en_vnRouter  =require("./app/routes/en-vnRoute");
+const fr_vnRouter  =require("./app/routes/fr-vnRoute");
 const apiError = require("./app/apiError");
 
 const app = express();
@@ -11,6 +12,7 @@ app.get("/", (req, res) => {
     res.json({ message: "Welcome to contact book application!" });
 });
 app.use("/api/eng", en_vnRouter);
+app.use("/api/fra", fr_vnRouter);
 
 //handle 404
 app.use((req, res, next) =>{

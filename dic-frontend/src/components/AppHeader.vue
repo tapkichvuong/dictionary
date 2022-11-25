@@ -5,13 +5,13 @@
             <li class="nav-item">
                 <router-link :to="{name: 'eng_vie'}" class="nav-link">
                     Eng-Vie
-                    <font-awesome-icon icon="fa-solid fa-address-book" />
+                    <font-awesome-icon icon="fa-solid fa-book" />
                 </router-link>
             </li>
             <li class="nav-item">
-                <router-link :to="{name: 'eng_vie'}" class="nav-link">
-                    Esp-Vie
-                    <font-awesome-icon icon="fa-solid fa-address-book" />
+                <router-link :to="{name: 'fra_vie'}" class="nav-link">
+                    Fra-Vie
+                    <font-awesome-icon icon="fa-solid fa-book" />
                 </router-link>
             </li>
         </div>
