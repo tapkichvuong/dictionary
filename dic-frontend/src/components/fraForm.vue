@@ -54,9 +54,14 @@ export default {
             <ErrorMessage name="example" class="error-feedback" />
         </div>
         <div class="form-group">
-            <button class="btn btn-primary">Lưu</button>
-            <button v-if="wordLocal._id" type="button" class="ml-2 btn btn-danger"
-                @click="deleteWord">Xóa</button>
+            <button class="btn btn-primary" @click="submitWord">
+                <font-awesome-icon icon="fas fa-save" />
+                Lưu
+            </button>
+            <button v-if="wordLocal._id" type="button" class="ml-2 btn btn-danger" @click="deleteWord">
+                <font-awesome-icon icon="fa-solid fa-trash" />
+                Xóa
+            </button>
         </div>
     </Form>
 </template>
