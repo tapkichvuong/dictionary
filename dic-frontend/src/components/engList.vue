@@ -16,7 +16,7 @@ export default{
 <template>
     <ul class="list-group d-flex justify-content-start">
         <li class="list-group-item text-dark font-weight-bold h5 w-75" v-for="(word, index) in words" :key="word._id" :class="{active:index === activeIndex}" @click="updateActiveIndex(index)">
-            {{word.english}}
+            {{word.tu}}
         </li>
     </ul>
 </template>

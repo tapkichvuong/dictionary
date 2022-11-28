@@ -10,19 +10,23 @@ export default {
     <div>
         <div class="p-1 h3">
             <strong>English: </strong>
-            {{word.english}}
+            {{word.tu}}
+        </div>
+        <div class="p-1 h3">
+            <strong>Spelling: </strong>
+            {{word.phienam}}
         </div>
         <div class="p-1 h3">
             <strong>Form: </strong>
-            {{word.form}}
+            {{word.dang}}
         </div>
         <div class="p-1 h3">
             <strong>Việt: </strong>
-            {{word.viet}}
+            {{word.nghia}}
         </div>
         <div class="p-1 h3">
             <strong>Example: </strong>
-            {{word.example}}
+            {{word.vidu}}
         </div>
         
     </div>

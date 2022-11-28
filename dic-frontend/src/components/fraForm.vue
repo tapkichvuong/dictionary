@@ -14,6 +14,7 @@ export default {
     data() {
         const wordFormSchema = yup.object().shape({
             Français: yup.string().required('Từ đang trống'),
+            spelling: yup.string().required('Phiên âm đang trống'),
             form: yup.string().required('Dạnh từ đang trống'),
             viet: yup.string().required('Nghĩa đang trống'),
             example: yup.string().required('Ví dụ đang trống'),
@@ -37,6 +38,11 @@ export default {
             <label for="fra">Français</label>
             <Field name="fra" type="text" class="form-control" v-model="wordLocal.Français" />
             <ErrorMessage name="fra" class="error-feedback" />
+        </div>
+        <div class="form-group">
+            <label for="spelling">Spelling</label>
+            <Field name="spelling" type="text" class="form-control" v-model="wordLocal.spelling" />
+            <ErrorMessage name="spelling" class="error-feedback" />
         </div>
         <div class="form-group">
             <label for="form">Form</label>

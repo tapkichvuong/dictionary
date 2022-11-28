@@ -9,6 +9,7 @@ export default {
         return {
             word: {
                 'english': "",
+                'spelling': "",
                 'form': "",
                 'viet': "",
                 'example': "",

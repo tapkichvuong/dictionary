@@ -7,10 +7,11 @@ class FraWordService {
     // define database access methods using mongodb API
     extraWordData(payload) {
         const word = {
-            Français: payload.Français,
-            form: payload.form,
-            viet: payload.viet,
-            example: payload.example,
+            tu: payload.Français,
+            phienam: payload.spelling,
+            dang: payload.form,
+            nghia: payload.viet,
+            vidu: payload.example,
         }
         //remove undefined fields
         Object.keys(word).forEach(
